@@ -60,7 +60,7 @@ def highlight(group, patt, priority=10):
 def clear_hl_by_ids(ids):
     """Clears Breeze highlightings with id in 'ids'."""
     for id in ids:
-        vim.command("call matchdelete({0})".format(id))
+        vim.command("try | call matchdelete({0}) | catch | endtry".format(id))
 
 
 def clear_hl():
